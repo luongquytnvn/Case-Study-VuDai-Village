@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+    <meta charset="UTF-8">
+    <title>Delete employee</title>
+</head>
+<body>
+<p>
+    <a href="/admin/employee-list">Back to Employee list</a> ||
+    <a href="/logout">Logout</a>
+</p>
+<h1>Delete employee</h1>
+<div id="form">
+    <form th:object="${employee}" method="post" th:action="@{/admin/employee-delete}">
+        <input th:type="hidden" name="id" th:field="*{id}">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td th:text="${employee.name}"></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td th:text="${employee.gender}"></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td th:text="${employee.address}"></td>
+            </tr>
+            <tr>
+                <td>Date Of Birth:</td>
+                <td th:text="${employee.dateOfBirth}"></td>
+            </tr>
+            <tr>
+                <td>Phone number:</td>
+                <td th:text="${employee.phoneNumber}"></td>
+            </tr>
+            <tr>
+                <td>Salary:</td>
+                <td th:text="${employee.salary}"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Delete"></td>
+                <td><input type="button" onclick="window.location.href='/admin/employee-list'" value="No"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

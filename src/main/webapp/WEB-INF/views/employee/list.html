@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+    <meta charset="UTF-8">
+    <title>List employee</title>
+    <style>
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            font-size: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 100px;
+            box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 12px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+<p>
+    <a href="/">Back to home page</a> ||
+    <a href="/logout">Logout</a>
+</p>
+<h1>Employee list</h1>
+<p>
+    <a href="/admin/employee-create">Create new employee</a>
+</p>
+
+<form th:action="@{/admin/employee-search}" method="post">
+    <input type="text" name="search" placeholder="  name employee">
+    <input type="submit" value="Search">
+</form>
+<br>
+<p>
+<div>
+    <h2>Sort by</h2>
+    <form th:action="@{/admin/employee-list-sort}">
+        <select name="sortBy">
+            <option value="default">Default</option>
+            <option value="name">Name</option>
+            <option value="dateOfBirth">Date Of Birth</option>
+            <option value="address">Address</option>
+            <option value="salary">Salary</option>
+        </select>
+        <select name="direction">
+            <option value="ASC">Ascending</option>
+            <option value="DESC">Decrease</option>
+        </select>
+        <input type="submit" value="Sort">
+    </form>
+</div>
+</p>
+<br>
+<table id = "employees">
+    <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>Date Of Birth</th>
+        <th>Number phone</th>
+        <th>Salary</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="employee : ${employees}">
+        <tr>
+            <td th:text="${employee.name}"></td>
+            <td>
+                <a th:if="${employee.gender}" th:text="Male"></a>
+                <a th:if="${!employee.gender}" th:text="Female"></a>
+            </td>
+            <td th:text="${employee.address}"></td>
+            <td th:text="${employee.dateOfBirth}"></td>
+            <td th:text="${employee.phoneNumber}"></td>
+            <td th:text="${employee.salary}"></td>
+            <td><a th:href="@{/admin/employee-edit/__${employee.id}__}">Edit</a></td>
+            <td><a th:href="@{/admin/employee-delete/__${employee.id}__}">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+<div>
+    <a th:href="@{'/admin/employee-list'(page=${employees.number - 1})}" th:if="${employees.hasPrevious()}">Previous</a>
+    <span th:text="${employees.number + 1}"></span>/<span th:text="${employees.totalPages}"></span>
+    <a th:href="@{'/admin/employee-list'(page=${employees.number + 1})}" th:if="${employees.hasNext()}">Next</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+    <meta charset="UTF-8">
+    <title>Create a new employee</title>
+</head>
+<body>
+<p>
+    <a href="/admin/employee-list">Back to employee list</a> ||
+    <a href="/logout">Logout</a>
+</p>
+<h1>Create new employee</h1>
+<div id="form">
+    <form th:object="${employee}" method="post" th:action="@{/admin/employee-create}">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" th:field="*{name}"></td>
+                <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <select th:field="*{gender}">
+                        <option th:value="true">Male</option>
+                        <option th:value="false">Female</option>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><input type="text" th:field="*{address}"></td>
+                <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</td>
+            </tr>
+            <tr>
+                <td>Date Of Birth:</td>
+                <td><input type="date" th:field="*{dateOfBirth}" th:value="da"></td>
+                <td th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">Date Of Birth Error</td>
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <td><input type="text" th:field="*{phoneNumber}"></td>
+                <td th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Phone Number Error</td>
+            </tr>
+            <tr>
+                <td>Salary:</td>
+                <td><input type="number" th:field="*{salary}"></td>
+                <td th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}">Salary Error</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a th:if="${message != null}" th:text="${message}"></a></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Create"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
