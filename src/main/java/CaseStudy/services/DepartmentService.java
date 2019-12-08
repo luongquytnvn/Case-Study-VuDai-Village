@@ -11,6 +11,5 @@ public interface DepartmentService {
     Department findById(Long id);
     void save(Department department);
     void remove(Long id);
-
-
+    Boolean isExisted(String name, Pageable pageable);
 }

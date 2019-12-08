@@ -10,4 +10,5 @@ public interface PositionService {
     void save(Position position);
     void remove(Long id);
     Page<Position> findAllByNameContaining(String name, Pageable pageable);
+    Boolean isExisted(String name, Pageable pageable);
 }

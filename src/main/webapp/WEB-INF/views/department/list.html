@@ -20,7 +20,6 @@
 </form><br/>
 <table id="employees">
     <tr>
-        <th>Department code</th>
         <th>Department name</th>
         <th>Department phone number</th>
         <th>Edit</th>
@@ -28,7 +27,6 @@
     </tr>
     <th:block th:each="departments : ${department}">
         <tr>
-            <td th:text="${departments.departmentCode}"></td>
             <td th:text="${departments.departmentName}"></td>
             <td th:text="${departments.departmentPhone}"></td>
             <td><a th:href="@{/admin/edit-department/__${departments.id}__ }">Edit</a></td>

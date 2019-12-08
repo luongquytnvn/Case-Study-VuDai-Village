@@ -12,6 +12,7 @@ import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -43,17 +44,23 @@ public class PositionController {
         return modelAndView;
     }
     @PostMapping("/admin/create-position")
-    public ModelAndView savePosition(@Valid @ModelAttribute("position") Position position, BindingResult bindingResult){
+    public ModelAndView savePosition(@Valid @ModelAttribute("position") Position position, BindingResult bindingResult, Pageable pageable){
         if(bindingResult.hasFieldErrors()){
             ModelAndView modelAndView  = new ModelAndView("position/create");
             return modelAndView;
-        } else {
+        }
+        if (!positionService.isExisted(position.getName(),pageable)){
+            ModelAndView modelAndView = new ModelAndView("position/create");
+            modelAndView.addObject("position",position);
+            modelAndView.addObject("message","Position is Existed");
+            return modelAndView;
+        }
+
             positionService.save(position);
             ModelAndView modelAndView = new ModelAndView("position/create");
             modelAndView.addObject("position", position);
-            modelAndView.addObject("message", "new Position has been created");
+            modelAndView.addObject("message", "New position has been created");
             return modelAndView;
-        }
     }
     @GetMapping("/admin/edit-position/{id}")
     public ModelAndView showEditForm(@PathVariable("id")Long id){
@@ -68,11 +75,21 @@ public class PositionController {
         }
     }
     @PostMapping("/admin/edit-position")
-    public ModelAndView updatePosition(@ModelAttribute("position") Position position){
+    public ModelAndView updatePosition(@Validated @ModelAttribute("position") Position position, BindingResult bindingResult, Pageable pageable){
+        if(bindingResult.hasFieldErrors()){
+            ModelAndView modelAndView  = new ModelAndView("position/edit");
+            return modelAndView;
+        }
+        if (!positionService.isExisted(position.getName(),pageable)){
+            ModelAndView modelAndView = new ModelAndView("position/edit");
+            modelAndView.addObject("position",position);
+            modelAndView.addObject("message","Position is Existed");
+            return modelAndView;
+        }
         positionService.save(position);
         ModelAndView modelAndView = new ModelAndView("position/edit");
         modelAndView.addObject("position", position);
-        modelAndView.addObject("message", "updated position");
+        modelAndView.addObject("message", "Updated position");
         return modelAndView;
     }
     @GetMapping("/admin/delete-position/{id}")

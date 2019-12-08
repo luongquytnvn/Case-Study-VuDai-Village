@@ -10,5 +10,5 @@ public interface LaborContractService {
     void save(LaborContract laborContract);
     void remove(Long id);
     Page<LaborContract> findAllByNameContaining(String name, Pageable pageable);
-
+    Boolean isExisted(String name, Pageable pageable);
 }

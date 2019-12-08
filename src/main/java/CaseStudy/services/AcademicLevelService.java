@@ -9,4 +9,5 @@ public interface AcademicLevelService {
     AcademicLevel findById(Long id);
     void save (AcademicLevel academicLevel);
     void remove (Long id);
+    Boolean isExisted(String name, Pageable pageable);
 }

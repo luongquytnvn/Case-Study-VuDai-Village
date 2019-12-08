@@ -14,11 +14,6 @@
     <form th:action="@{/admin/create-department}" th:object="${department}" method="post">
         <table>
             <tr>
-                <td>Department code:</td>
-                <td><input type="text" th:field="*{departmentCode}"></td>
-                <td th:if="${#fields.hasErrors('departmentCode')}" th:errors="*{departmentCode}">Name Error</td>
-            </tr>
-            <tr>
                 <td>Department name:</td>
                 <td><input type="text" th:field="*{departmentName}"></td>
                 <td th:if="${#fields.hasErrors('departmentName')}" th:errors="*{departmentName}">Name Error</td>

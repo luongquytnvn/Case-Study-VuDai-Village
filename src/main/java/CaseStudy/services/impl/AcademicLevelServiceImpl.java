@@ -30,4 +30,13 @@ public class AcademicLevelServiceImpl implements AcademicLevelService {
     public void remove(Long id) {
         academicLevelRepository.delete(id);
     }
+
+    @Override
+    public Boolean isExisted(String name, Pageable pageable) {
+        Page<AcademicLevel> academicLevels = academicLevelRepository.findAllByNameLevel(name,pageable);
+        if(academicLevels.hasContent()) {
+            return false;
+        }
+        return true;
+    }
 }

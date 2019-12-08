@@ -35,6 +35,14 @@ public class LaborContractServiceImpl implements LaborContractService {
     public Page<LaborContract> findAllByNameContaining(String name, Pageable pageable) {
         return laborContractRepository.findAllByNameContaining(name, pageable);
     }
+    @Override
+    public Boolean isExisted(String name, Pageable pageable) {
+        Page<LaborContract> academicLevels = laborContractRepository.findAllByName(name,pageable);
+        if(academicLevels.hasContent()) {
+            return false;
+        }
+        return true;
+    }
 }
 
   

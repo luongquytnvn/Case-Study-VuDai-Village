@@ -40,9 +40,14 @@ public class DepartmentController {
     }
 
     @PostMapping("/admin/create-department")
-    public String saveCreate(Model model, @Validated Department department, BindingResult bindingResult) {
+    public String saveCreate(Model model, @Validated Department department, BindingResult bindingResult, Pageable pageable) {
         new DepartmentValidation().validate(department, bindingResult);
         if (bindingResult.hasErrors()) {
+            return "/department/create";
+        }
+        if (!departmentService.isExisted(department.getDepartmentName(),pageable)){
+            model.addAttribute("department",department);
+            model.addAttribute("message","Department is Existed");
             return "/department/create";
         }
         departmentService.save(department);
@@ -59,9 +64,15 @@ public class DepartmentController {
     }
 
     @PostMapping("/admin/edit-department")
-    public String saveEdit(Model model,@Validated Department department, BindingResult bindingResult) {
+    public String saveEdit(Model model,@Validated Department department, BindingResult bindingResult, Pageable pageable) {
         new DepartmentValidation().validate(department, bindingResult);
         if (bindingResult.hasFieldErrors()) {
+            return "/department/edit";
+        }
+        if (!departmentService.isExisted(department.getDepartmentName(),pageable)){
+            ModelAndView modelAndView = new ModelAndView("department/create");
+            model.addAttribute("department",department);
+            model.addAttribute("message","Department is Existed");
             return "/department/edit";
         }
         departmentService.save(department);

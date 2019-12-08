@@ -11,8 +11,6 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
-    private String departmentCode;
-    @NotEmpty
     private String departmentName ;
     private String departmentPhone ;
     @OneToMany
@@ -28,9 +26,8 @@ public class Department {
 
     public Department(){}
 
-    public Department(Long id, String departmentCode, String departmentName, String departmentPhone){
+    public Department(Long id,String departmentName, String departmentPhone){
         this.id = id ;
-        this.departmentCode = departmentCode;
         this.departmentName = departmentName ;
         this.departmentPhone = departmentPhone ;
     }
@@ -43,13 +40,6 @@ public class Department {
         this.id = id;
     }
 
-    public String getDepartmentCode() {
-        return departmentCode;
-    }
-
-    public void setDepartmentCode(String departmentCode) {
-        this.departmentCode = departmentCode;
-    }
 
     public String getDepartmentName() {
         return departmentName;

@@ -7,4 +7,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface PositionRepository extends PagingAndSortingRepository<Position, Long>  {
     Page<Position> findAllByNameContaining(String name, Pageable pageable);
+    Page<Position> findAllByName(String name, Pageable pageable);
 }

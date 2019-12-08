@@ -36,6 +36,14 @@ public class PositionServiceImpl implements PositionService {
     public Page<Position> findAllByNameContaining(String name, Pageable pageable) {
         return positionRepository.findAllByNameContaining(name, pageable);
     }
+    @Override
+    public Boolean isExisted(String name, Pageable pageable) {
+        Page<Position> academicLevels = positionRepository.findAllByName(name,pageable);
+        if(academicLevels.hasContent()) {
+            return false;
+        }
+        return true;
+    }
 }
 
   

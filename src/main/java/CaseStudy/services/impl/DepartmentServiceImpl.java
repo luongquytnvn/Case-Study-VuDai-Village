@@ -35,4 +35,12 @@ public class DepartmentServiceImpl implements DepartmentService {
     public void remove(Long id) {
         departmentRepository.delete(id);
     }
+    @Override
+    public Boolean isExisted(String name, Pageable pageable) {
+        Page<Department> departments = departmentRepository.findAllByDepartmentName(name,pageable);
+        if(departments.hasContent()) {
+            return false;
+        }
+        return true;
+    }
 }

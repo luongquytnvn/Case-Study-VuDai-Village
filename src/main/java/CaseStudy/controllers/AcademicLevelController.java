@@ -39,9 +39,15 @@ public class AcademicLevelController {
     }
 
     @PostMapping("/admin/academicLevel/create")
-    public ModelAndView saveCreateAcademicLevel(@Validated @ModelAttribute("level") AcademicLevel academicLevel, BindingResult bindingResult) {
+    public ModelAndView saveCreateAcademicLevel(@Validated @ModelAttribute("level") AcademicLevel academicLevel, BindingResult bindingResult, Pageable pageable) {
         if (bindingResult.hasFieldErrors()) {
             ModelAndView modelAndView = new ModelAndView("academicLevel/create");
+            return modelAndView;
+        }
+        if (!academicLevelService.isExisted(academicLevel.getNameLevel(),pageable)){
+            ModelAndView modelAndView = new ModelAndView("academicLevel/create");
+            modelAndView.addObject("level",academicLevel);
+            modelAndView.addObject("message","Academic is Existed");
             return modelAndView;
         }
         academicLevelService.save(academicLevel);
@@ -60,9 +66,15 @@ public class AcademicLevelController {
     }
 
     @PostMapping("/admin/academicLevel/edit")
-    public ModelAndView saveEditAcademicLevel(@Validated @ModelAttribute("level") AcademicLevel academicLevel, BindingResult bindingResult) {
+    public ModelAndView saveEditAcademicLevel(@Validated @ModelAttribute("level") AcademicLevel academicLevel, BindingResult bindingResult, Pageable pageable) {
         if (bindingResult.hasFieldErrors()) {
             ModelAndView modelAndView = new ModelAndView("academicLevel/edit");
+            return modelAndView;
+        }
+        if (!academicLevelService.isExisted(academicLevel.getNameLevel(),pageable)){
+            ModelAndView modelAndView = new ModelAndView("academicLevel/create");
+            modelAndView.addObject("level",academicLevel);
+            modelAndView.addObject("message","Academic is Existed");
             return modelAndView;
         }
         academicLevelService.save(academicLevel);

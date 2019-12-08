@@ -8,4 +8,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface  DepartmentRepository extends PagingAndSortingRepository<Department, Long> {
     Page<Department> findAllByDepartmentNameContaining(String name, Pageable pageable);
+    Page<Department> findAllByDepartmentName(String name, Pageable pageable);
 }

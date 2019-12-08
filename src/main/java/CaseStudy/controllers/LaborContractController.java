@@ -44,10 +44,16 @@ public class LaborContractController {
         return modelAndView;
     }
     @PostMapping("/admin/create-labor")
-    public ModelAndView createLabor(@Validated LaborContract laborContract, BindingResult bindingResult){
+    public ModelAndView createLabor(@Validated LaborContract laborContract, BindingResult bindingResult, Pageable pageable){
         if (bindingResult.hasFieldErrors()) {
             ModelAndView modelAndView = new ModelAndView("laborContract/create");
             modelAndView.addObject("laborContract", laborContract);
+            return modelAndView;
+        }
+        if (!laborContractService.isExisted(laborContract.getName(),pageable)){
+            ModelAndView modelAndView = new ModelAndView("laborContract/create");
+            modelAndView.addObject("laborContract",laborContract);
+            modelAndView.addObject("message","Labor Contract is Existed");
             return modelAndView;
         }
         laborContractService.save(laborContract);
@@ -69,10 +75,16 @@ public class LaborContractController {
         }
     }
     @PostMapping("/admin/edit-labor")
-    public ModelAndView updateLaborContract(@Validated LaborContract laborContract, BindingResult bindingResult){
+    public ModelAndView updateLaborContract(@Validated LaborContract laborContract, BindingResult bindingResult, Pageable pageable){
         if (bindingResult.hasFieldErrors()) {
             ModelAndView modelAndView = new ModelAndView("laborContract/edit");
             modelAndView.addObject("laborContract", laborContract);
+            return modelAndView;
+        }
+        if (!laborContractService.isExisted(laborContract.getName(),pageable)){
+            ModelAndView modelAndView = new ModelAndView("laborContract/edit");
+            modelAndView.addObject("laborContract",laborContract);
+            modelAndView.addObject("message","Labor Contract is Existed");
             return modelAndView;
         }
         laborContractService.save(laborContract);

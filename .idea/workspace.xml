@@ -17,9 +17,27 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/controllers/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/controllers/DepartmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/controllers/LaborContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/controllers/LaborContractController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/controllers/PositionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/controllers/PositionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/models/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/models/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/repositories/AcademicLevelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/repositories/AcademicLevelRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/repositories/DepartmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/repositories/DepartmentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/repositories/LaborContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/repositories/LaborContractRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/repositories/PositionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/repositories/PositionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/services/AcademicLevelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/services/AcademicLevelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/services/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/services/DepartmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/services/LaborContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/services/LaborContractService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/services/PositionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/services/PositionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/services/impl/AcademicLevelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/services/impl/AcademicLevelServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/services/impl/DepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/services/impl/DepartmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/services/impl/LaborContractServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/services/impl/LaborContractServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/services/impl/PositionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/services/impl/PositionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/department/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/department/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/department/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/department/delete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/department/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/department/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/department/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/department/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/laborContract/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/laborContract/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/laborContract/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/laborContract/edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/position/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/position/edit.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -215,7 +233,7 @@
       <workItem from="1575682674702" duration="589000" />
       <workItem from="1575683310309" duration="30860000" />
       <workItem from="1575773672553" duration="10272000" />
-      <workItem from="1575788566596" duration="965000" />
+      <workItem from="1575788566596" duration="5222000" />
     </task>
     <servers />
   </component>
@@ -234,5 +252,26 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/CaseStudy/services/impl/AcademicLevelServiceImpl.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/CaseStudy/services/impl/AcademicLevelServiceImpl.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/CaseStudy/services/impl/AcademicLevelServiceImpl.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
