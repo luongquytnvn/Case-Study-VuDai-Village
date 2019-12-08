@@ -15,12 +15,16 @@
         <input th:type="hidden" name="id" th:field="*{id}">
         <table>
             <tr>
+                <td>Mã NV:</td>
+                <td th:text="${employee.id}"></td>
+            </tr>
+            <tr>
                 <td>Name:</td>
                 <td th:text="${employee.name}"></td>
             </tr>
             <tr>
                 <td>Gender:</td>
-                <td th:text="${employee.gender}"></td>
+                <td><a  th:if="${employee.gender}">Male</a><a th:if="${!employee.gender}">Female</a></td>
             </tr>
             <tr>
                 <td>Address:</td>
@@ -36,7 +40,7 @@
             </tr>
             <tr>
                 <td>Salary:</td>
-                <td th:text="${employee.salary}"></td>
+                <td th:text="${#numbers.formatDecimal(employee.salary, 0, 'COMMA', 2, 'POINT')}"></td>
             </tr>
             <tr>
                 <td><input type="submit" value="Delete"></td>

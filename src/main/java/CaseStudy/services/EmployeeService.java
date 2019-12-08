@@ -11,5 +11,9 @@ public interface EmployeeService {
     Employee findById(Long id);
     void save(Employee employee);
     void delete(Long id);
-    public List<Employee> findByName(String search, Pageable pageable);
+    Page<Employee> findAllByNameContaining(String name,Pageable pageable);
+    Page<Employee> findAllByAcademicLevel_Id(Long id,Pageable pageable);
+    Page<Employee> findAllByDepartment_Id(Long id,Pageable pageable);
+    Page<Employee> findAllByLaborContract_Id(Long id,Pageable pageable);
+    Page<Employee> findAllByPosition_Id(Long id,Pageable pageable);
 }

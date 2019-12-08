@@ -46,9 +46,47 @@
             </tr>
             <tr>
                 <td>Salary:</td>
-                <td><input type="number" th:field="*{salary}"></td>
+                <td><input type="text" th:field="*{salary}"></td>
                 <td th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}">Salary Error</td>
             </tr>
+            <tr>
+                <td>Image src:</td>
+                <td><input type="text" th:field="*{image}"></td>
+                <td th:if="${#fields.hasErrors('image')}" th:errors="*{salary}">Image src Error</td>
+            </tr>
+            <tr>
+                <td>Academic Level:</td>
+                <td>
+                    <select th:field="*{academicLevel}">
+                        <option th:each="a:${academicLevels}" th:value="${a.id}" th:text="${a.nameLevel}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Department:</td>
+                <td>
+                    <select th:field="*{department}">
+                        <option th:each="a:${departmentsList}" th:value="${a.id}" th:text="${a.departmentName}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Labor Contract:</td>
+                <td>
+                    <select th:field="*{laborContract}">
+                        <option th:each="a:${laborContracts}" th:value="${a.id}" th:text="${a.name}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Position:</td>
+                <td>
+                    <select th:field="*{position}">
+                        <option th:each="f:${positions}" th:value="${f.id}" th:text="${f.name}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
             <tr>
                 <td></td>
                 <td><a th:if="${message != null}" th:text="${message}"></a></td>

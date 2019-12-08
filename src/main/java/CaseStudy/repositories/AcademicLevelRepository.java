@@ -1,4 +1,7 @@
 package CaseStudy.repositories;
 
-public class AcademicLevelRepository {
+import CaseStudy.models.AcademicLevel;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+public interface AcademicLevelRepository extends PagingAndSortingRepository<AcademicLevel, Long> {
 }

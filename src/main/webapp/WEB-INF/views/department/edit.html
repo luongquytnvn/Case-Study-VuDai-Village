@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit department</title>
 </head>
 <body>
-
+<p>
+    <a href="/admin/department-list">Back to department list</a>
+    <a href="/logout">Logout</a>
+</p>
+<h1>Edit department</h1>
+<div id="form">
+    <form th:object="${department}" method="post" action="/admin/edit-department">
+        <input type="hidden" name="id" th:field="*{id}">
+        <table>
+            <tr>
+                <td>Department code:</td>
+                <td><input type="text" th:field="*{departmentCode}"></td>
+                <td th:if="${#fields.hasErrors('departmentCode')}" th:errors="*{departmentCode}">Name Error</td>
+            </tr>
+            <tr>
+                <td>Department name:</td>
+                <td><input type="text" th:field="*{departmentName}"></td>
+                <td th:if="${#fields.hasErrors('departmentName')}" th:errors="*{departmentName}">Name Error</td>
+            </tr>
+            <tr>
+                <td>Department phone number:</td>
+                <td><input type="text" th:field="*{departmentPhone}"></td>
+                <td th:if="${#fields.hasErrors('departmentPhone')}" th:errors="*{departmentPhone}">Name Error</td>
+            </tr>
+            <tr>
+                <td><a th:if="${message != null}" th:text="${message}"></a></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Update"></td>
+            </tr>
+        </table>
+    </form>
+</div>
 </body>
 </html>

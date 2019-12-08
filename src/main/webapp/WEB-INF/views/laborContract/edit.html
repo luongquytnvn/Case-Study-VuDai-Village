@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit LaborContract</title>
 </head>
 <body>
-
+<h1>Edit LaborContract</h1>
+<p>
+    <a href="/admin/laborContract">LaborContract list</a>
+    <a href="/logout">Logout</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<div id="form">
+    <form th:action="@{/admin/edit-labor}" th:object="${laborContract}" method="post">
+        <input th:type="hidden" name="id" th:field="*{id}">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" th:field="*{name}"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Update laborContract"></td>
+            </tr>
+        </table>
+    </form>
+</div>
 </body>
 </html>

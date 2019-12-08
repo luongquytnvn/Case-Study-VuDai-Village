@@ -1,7 +1,7 @@
 package CaseStudy.config;
 
-import CaseStudy.services.EmployeeService;
-import CaseStudy.services.impl.EmployeeServiceImpl;
+import CaseStudy.services.*;
+import CaseStudy.services.impl.*;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -47,10 +47,32 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
+
     @Bean
-    public EmployeeService employeeService(){
+    public EmployeeService employeeService() {
         return new EmployeeServiceImpl();
     }
+
+    @Bean
+    public AcademicLevelService academicLevelService() {
+        return new AcademicLevelServiceImpl();
+    }
+
+    @Bean
+    public DepartmentService departmentService() {
+        return new DepartmentServiceImpl();
+    }
+
+    @Bean
+    public PositionService positionService() {
+        return new PositionServiceImpl();
+    }
+
+    @Bean
+    public LaborContractService laborContractService() {
+        return new LaborContractServiceImpl();
+    }
+
     //Thymeleaf Configuration
     @Bean
     public SpringResourceTemplateResolver templateResolver() {
@@ -70,6 +92,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
         templateEngine.addDialect(new SpringSecurityDialect());
         return templateEngine;
     }
+
     @Bean
     public ResourceBundleMessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();

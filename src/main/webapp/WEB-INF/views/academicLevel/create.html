@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create AcademicLevel</title>
 </head>
 <body>
-
+<h1>Create AcademicLevel</h1>
+<p>
+    <a href="/admin/levels">Academic level list</a> ||
+    <a href="/logout">Logout</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<div id="form">
+    <form th:action="@{/admin/academicLevel/create}" th:object="${level}" method="post">
+        <table>
+            <tr>
+                <td>NameLevel:</td>
+                <td><input type="text" th:field="*{nameLevel}"/></td>
+                <td th:if="${#fields.hasErrors('nameLevel')}" th:errors="*{nameLevel}">NameLevel Error</td>
+            </tr>
+            <tr>
+                <td>Specialized:</td>
+                <td><input type="text" th:field="*{specialized}"/></td>
+                <td th:if="${#fields.hasErrors('specialized')}" th:errors="*{specialized}">Specialized Error</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Create AcademicLevel"/></td>
+            </tr>
+        </table>
+    </form>
+</div>
 </body>
 </html>

@@ -32,13 +32,30 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void delete(Long id) {
         employeeRepository.delete(id);
     }
-    public List<Employee> findByName(String search, Pageable pageable){
-        Page<Employee> employees = employeeRepository.findAll(pageable);
-        List<Employee> results = new ArrayList<>();
-        for (Employee e: employees) {
-            if (e.getName().toLowerCase().contains(search.toLowerCase()))
-            results.add(e);
-        }
-        return results;
+
+    @Override
+    public Page<Employee> findAllByNameContaining(String name, Pageable pageable) {
+        return employeeRepository.findAllByNameContaining(name,pageable);
     }
+
+    @Override
+    public Page<Employee> findAllByAcademicLevel_Id(Long id, Pageable pageable) {
+        return employeeRepository.findAllByAcademicLevel_Id(id, pageable);
+    }
+
+    @Override
+    public Page<Employee> findAllByDepartment_Id(Long id, Pageable pageable) {
+        return employeeRepository.findAllByDepartment_Id(id, pageable);
+    }
+
+    @Override
+    public Page<Employee> findAllByLaborContract_Id(Long id, Pageable pageable) {
+        return employeeRepository.findAllByLaborContract_Id(id, pageable);
+    }
+
+    @Override
+    public Page<Employee> findAllByPosition_Id(Long id, Pageable pageable) {
+        return employeeRepository.findAllByPosition_Id(id, pageable);
+    }
+
 }

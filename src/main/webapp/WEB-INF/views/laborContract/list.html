@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>LaborContracts</title>
 </head>
 <body>
-
+<p>
+    <a href="/">Back to home</a> ||
+    <a href="/logout">Logout</a>
+</p>
+<p>
+    <a href="/admin/create-labor">Create new laborContract</a>
+</p>
+<h1>LaborContracts</h1>
+<form>
+    Search by laborContract name:
+    <input name="c" type="text"/>
+    <input type="submit" value="Search"/>
+</form><br/>
+<table id="employees">
+    <tr>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="laborContract : ${laborContracts}">
+        <tr>
+            <td th:text="${laborContract.name}"></td>
+            <td><a th:href="@{/admin/edit-labor/__${laborContract.id}__ }">Edit</a></td>
+            <td><a th:href="@{/admin/delete-labor/__${laborContract.id}__}">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+<div>
+    <a th:href="@{'/admin/laborContracts'(page=${laborContracts.number - 1})}" th:if="${laborContracts.hasPrevious()}">Previous</a>
+    <span th:text="${laborContracts.number + 1}"></span>/<span th:text="${laborContracts.totalPages}"></span>
+    <a th:href="@{'/admin/laborContracts'(page=${laborContracts.number + 1})}" th:if="${laborContracts.hasNext()}">Next</a>
+</div>
 </body>
 </html>

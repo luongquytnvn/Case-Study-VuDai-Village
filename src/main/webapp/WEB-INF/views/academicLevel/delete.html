@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Delete academicLevel</title>
 </head>
 <body>
-
+<h1>Delete academicLevel</h1>
+<h2>Are you sure?</h2>
+<p>
+    <a href="/admin/levels">AcademicLevel list</a>
+    <a href="/logout">Logout</a>
+</p>
+<div id="form">
+    <form th:action="@{/admin/academicLevel/delete}" th:object="${level}" method="post">
+        <input th:type="hidden" name="id" th:field="*{id}">
+        <table>
+            <tr>
+                <td>Name Level:</td>
+                <td th:text="*{nameLevel}"></td>
+            </tr>
+            <tr>
+                <td>Specialized:</td>
+                <td th:text="*{specialized}"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Yes"></td>
+                <td><input type="button" value="No" onclick="window.location.href='/admin/levels'"></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+</div>
 </body>
 </html>

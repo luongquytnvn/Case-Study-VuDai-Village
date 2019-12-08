@@ -1,12 +1,12 @@
 package CaseStudy.models;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
@@ -22,8 +22,58 @@ public class Employee {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfBirth = LocalDate.now();
     private String phoneNumber;
-    @Min(0)
-    private long salary;
+    private String salary;
+    @NotEmpty
+    private String image;
+
+    @ManyToOne
+    private Department department;
+    @ManyToOne
+    private AcademicLevel academicLevel;
+    @ManyToOne
+    private Position position;
+    @ManyToOne
+    private LaborContract laborContract;
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public AcademicLevel getAcademicLevel() {
+        return academicLevel;
+    }
+
+    public void setAcademicLevel(AcademicLevel academicLevel) {
+        this.academicLevel = academicLevel;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public LaborContract getLaborContract() {
+        return laborContract;
+    }
+
+    public void setLaborContract(LaborContract laborContract) {
+        this.laborContract = laborContract;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Long getId() {
         return id;
@@ -73,11 +123,11 @@ public class Employee {
         this.phoneNumber = phoneNumber;
     }
 
-    public long getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(long salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 }
