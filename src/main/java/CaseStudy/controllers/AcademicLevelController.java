@@ -82,8 +82,8 @@ public class AcademicLevelController {
 
     @PostMapping("/admin/academicLevel/delete")
     public ModelAndView deleteAcademicLevel(@ModelAttribute("level") AcademicLevel academicLevel, Pageable pageable) {
-        Page<Employee> employees = employeeService.findAll(pageable);
-        if (employees!=null){
+        Page<Employee> employees = employeeService.findAllByAcademicLevel_Id(academicLevel.getId(),pageable);
+        if (employees.hasContent()){
             ModelAndView modelAndView = new ModelAndView("academicLevel/delete");
             modelAndView.addObject("level", academicLevelService.findById(academicLevel.getId()));
             modelAndView.addObject("message", "You must remove the employee associated with this field");

@@ -11,7 +11,7 @@
 </p>
 <h1>Edit department</h1>
 <div id="form">
-    <form th:object="${department}" method="post" action="/admin/edit-department">
+    <form th:object="${department}" method="post" th:action="@{/admin/edit-department}">
         <input type="hidden" name="id" th:field="*{id}">
         <table>
             <tr>

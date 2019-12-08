@@ -11,6 +11,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -42,7 +44,12 @@ public class LaborContractController {
         return modelAndView;
     }
     @PostMapping("/admin/create-labor")
-    public ModelAndView createLabor(LaborContract laborContract){
+    public ModelAndView createLabor(@Validated LaborContract laborContract, BindingResult bindingResult){
+        if (bindingResult.hasFieldErrors()) {
+            ModelAndView modelAndView = new ModelAndView("laborContract/create");
+            modelAndView.addObject("laborContract", laborContract);
+            return modelAndView;
+        }
         laborContractService.save(laborContract);
         ModelAndView modelAndView = new ModelAndView("laborContract/create");
         modelAndView.addObject("laborContract", new LaborContract());
@@ -62,7 +69,12 @@ public class LaborContractController {
         }
     }
     @PostMapping("/admin/edit-labor")
-    public ModelAndView updateLaborContract(LaborContract laborContract){
+    public ModelAndView updateLaborContract(@Validated LaborContract laborContract, BindingResult bindingResult){
+        if (bindingResult.hasFieldErrors()) {
+            ModelAndView modelAndView = new ModelAndView("laborContract/edit");
+            modelAndView.addObject("laborContract", laborContract);
+            return modelAndView;
+        }
         laborContractService.save(laborContract);
         ModelAndView modelAndView = new ModelAndView("laborContract/edit");
         modelAndView.addObject("laborContract",laborContract);
@@ -83,8 +95,8 @@ public class LaborContractController {
     }
     @PostMapping("/admin/delete-labor")
     public String deleteLabor(@ModelAttribute("laborContract")LaborContract laborContract, Pageable pageable, Model model){
-        Page<Employee> employees = employeeService.findAll(pageable);
-        if (employees!=null){
+        Page<Employee> employees = employeeService.findAllByLaborContract_Id(laborContract.getId(),pageable);
+        if (employees.hasContent()){
             model.addAttribute("laborContract", laborContractService.findById(laborContract.getId()));
             model.addAttribute("message", "You must remove the employee associated with this field");
             return "laborContract/delete";

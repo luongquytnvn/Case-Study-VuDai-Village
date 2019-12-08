@@ -89,8 +89,8 @@ public class PositionController {
     }
     @PostMapping("/admin/delete-position")
     public String deletePosition(@ModelAttribute("position") Position position, Model model, Pageable pageable){
-        Page<Employee> employees = employeeService.findAll(pageable);
-        if (employees!=null){
+        Page<Employee> employees = employeeService.findAllByPosition_Id(position.getId(),pageable);
+        if (employees.hasContent()){
             model.addAttribute("position", positionService.findById(position.getId()));
             model.addAttribute("message", "You must remove the employee associated with this field");
             return "position/delete";

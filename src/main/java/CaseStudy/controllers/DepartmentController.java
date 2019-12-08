@@ -79,8 +79,8 @@ public class DepartmentController {
 
     @PostMapping("/admin/delete-department")
     public String deleteDepartment(Department department, Pageable pageable, Model model) {
-        Page<Employee> employees = employeeService.findAll(pageable);
-        if (employees!=null) {
+        Page<Employee> employees = employeeService.findAllByDepartment_Id(department.getId(),pageable);
+        if (employees.hasContent()) {
             model.addAttribute("department", departmentService.findById(department.getId()));
             model.addAttribute("message", "You must remove the employee associated with this field");
             return "/department/delete";
