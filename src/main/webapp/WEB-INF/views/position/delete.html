@@ -8,7 +8,7 @@
 <h1>Delete position</h1>
 <h2>Are you sure?</h2>
 <p>
-    <a href="/admin/positions">Position list</a>
+    <a href="/admin/positions">Position list</a> ||
     <a href="/logout">Logout</a>
 </p>
 <div id="form">
@@ -21,10 +21,15 @@
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" value="Delete province"></td>
+                <td th:text="${message}"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Delete"></td>
             </tr>
         </table>
     </form>
 </div>
+<footer th:replace="layout :: footer"></footer>
 </body>
 </html>

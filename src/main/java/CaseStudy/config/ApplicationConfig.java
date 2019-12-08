@@ -93,13 +93,13 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
         return templateEngine;
     }
 
-    @Bean
-    public ResourceBundleMessageSource messageSource() {
-        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("message");
-        messageSource.setDefaultEncoding("UTF-8");
-        return messageSource;
-    }
+//    @Bean
+//    public ResourceBundleMessageSource messageSource() {
+//        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+//        messageSource.setBasename("message");
+//        messageSource.setDefaultEncoding("UTF-8");
+//        return messageSource;
+//    }
 
     @Bean
     public ThymeleafViewResolver viewResolver() {

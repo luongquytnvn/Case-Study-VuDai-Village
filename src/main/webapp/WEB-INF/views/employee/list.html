@@ -81,7 +81,8 @@
         <th>Address</th>
         <th>Date Of Birth</th>
         <th>Number phone</th>
-        <th>Salary</th>
+        <th>Department</th>
+        <th>Position</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
@@ -96,7 +97,8 @@
             <td th:text="${employee.address}"></td>
             <td th:text="${employee.dateOfBirth}"></td>
             <td th:text="${employee.phoneNumber}"></td>
-            <td style="text-align: right" th:text="${#numbers.formatDecimal(employee.salary, 0, 'COMMA', 2, 'POINT')}"></td>
+            <td th:text="${employee.department.departmentName}"></td>
+            <td th:text="${employee.position.name}"></td>
             <td><a th:href="@{/admin/employee-edit/__${employee.id}__}">Edit</a></td>
             <td><a th:href="@{/admin/employee-delete/__${employee.id}__}">Delete</a></td>
         </tr>
@@ -108,4 +110,5 @@
     <a th:href="@{'/admin/employee-list'(page=${employees.number + 1})}" th:if="${employees.hasNext()}">Next</a>
 </div>
 </body>
+<footer th:replace="layout :: footer"></footer>
 </html>

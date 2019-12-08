@@ -1,6 +1,8 @@
 package CaseStudy.controllers;
 
+import CaseStudy.models.Employee;
 import CaseStudy.models.Position;
+import CaseStudy.services.EmployeeService;
 import CaseStudy.services.PositionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -8,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,6 +22,8 @@ import java.util.Optional;
 public class PositionController {
     @Autowired
     private PositionService positionService;
+    @Autowired
+    private EmployeeService employeeService;
     @GetMapping("/admin/positions")
     public ModelAndView listPosition(@PageableDefault(size=10) Pageable pageable, @RequestParam("s") Optional<String> s){
         Page<Position> positions;
@@ -83,8 +88,13 @@ public class PositionController {
         }
     }
     @PostMapping("/admin/delete-position")
-    public String deletePosition(@ModelAttribute("position") Position position){
-
+    public String deletePosition(@ModelAttribute("position") Position position, Model model, Pageable pageable){
+        Page<Employee> employees = employeeService.findAll(pageable);
+        if (employees!=null){
+            model.addAttribute("position", positionService.findById(position.getId()));
+            model.addAttribute("message", "You must remove the employee associated with this field");
+            return "position/delete";
+        }
         positionService.remove(position.getId());
         return "redirect:/admin/positions";
     }

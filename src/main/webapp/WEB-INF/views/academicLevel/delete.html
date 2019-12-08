@@ -8,7 +8,7 @@
 <h1>Delete academicLevel</h1>
 <h2>Are you sure?</h2>
 <p>
-    <a href="/admin/levels">AcademicLevel list</a>
+    <a href="/admin/levels">AcademicLevel list</a> ||
     <a href="/logout">Logout</a>
 </p>
 <div id="form">
@@ -24,6 +24,10 @@
                 <td th:text="*{specialized}"></td>
             </tr>
             <tr>
+                <td></td>
+                <td th:text="${message}"></td>
+            </tr>
+            <tr>
                 <td><input type="submit" value="Yes"></td>
                 <td><input type="button" value="No" onclick="window.location.href='/admin/levels'"></td>
                 <td></td>
@@ -31,5 +35,6 @@
         </table>
     </form>
 </div>
+<footer th:replace="layout :: footer"></footer>
 </body>
 </html>

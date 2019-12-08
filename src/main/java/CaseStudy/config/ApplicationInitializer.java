@@ -28,4 +28,5 @@ public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherSe
         characterEncodingFilter.setEncoding("UTF-8");
         return new Filter[]{characterEncodingFilter};
     }
+
 }

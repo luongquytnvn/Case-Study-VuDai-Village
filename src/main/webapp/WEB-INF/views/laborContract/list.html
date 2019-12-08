@@ -37,5 +37,6 @@
     <span th:text="${laborContracts.number + 1}"></span>/<span th:text="${laborContracts.totalPages}"></span>
     <a th:href="@{'/admin/laborContracts'(page=${laborContracts.number + 1})}" th:if="${laborContracts.hasNext()}">Next</a>
 </div>
+<footer th:replace="layout :: footer"></footer>
 </body>
 </html>

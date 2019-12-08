@@ -25,13 +25,16 @@ public class Employee {
     private String salary;
     @NotEmpty
     private String image;
-
+    @NotNull
     @ManyToOne
     private Department department;
+    @NotNull
     @ManyToOne
     private AcademicLevel academicLevel;
+    @NotNull
     @ManyToOne
     private Position position;
+    @NotNull
     @ManyToOne
     private LaborContract laborContract;
 

@@ -1,7 +1,9 @@
 package CaseStudy.controllers;
 
 import CaseStudy.models.Department;
+import CaseStudy.models.Employee;
 import CaseStudy.services.DepartmentService;
+import CaseStudy.services.EmployeeService;
 import CaseStudy.validation.DepartmentValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,7 +24,8 @@ import java.util.Optional;
 public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
-
+    @Autowired
+    private EmployeeService employeeService;
     @GetMapping("/admin/department-list")
     public String departmentList(Model model, @PageableDefault(size = 5) Pageable pageable) {
         Page<Department> departments = departmentService.findAll(pageable);
@@ -75,7 +78,13 @@ public class DepartmentController {
     }
 
     @PostMapping("/admin/delete-department")
-    public String deleteDepartment(Department department) {
+    public String deleteDepartment(Department department, Pageable pageable, Model model) {
+        Page<Employee> employees = employeeService.findAll(pageable);
+        if (employees!=null) {
+            model.addAttribute("department", departmentService.findById(department.getId()));
+            model.addAttribute("message", "You must remove the employee associated with this field");
+            return "/department/delete";
+        }
         departmentService.remove(department.getId());
         return "redirect:/admin/department-list";
     }

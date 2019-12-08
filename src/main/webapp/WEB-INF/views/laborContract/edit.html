@@ -7,7 +7,7 @@
 <body>
 <h1>Edit LaborContract</h1>
 <p>
-    <a href="/admin/laborContract">LaborContract list</a>
+    <a href="/admin/laborContract">LaborContract list</a> ||
     <a href="/logout">Logout</a>
 </p>
 <th:block th:if="${message}">
@@ -28,5 +28,6 @@
         </table>
     </form>
 </div>
+<footer th:replace="layout :: footer"></footer>
 </body>
 </html>

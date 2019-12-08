@@ -60,6 +60,7 @@
                         <option th:each="a:${academicLevels}" th:value="${a.id}" th:text="${a.nameLevel}"></option>
                     </select>
                 </td>
+                <td th:if="${#fields.hasErrors('academicLevel')}" th:errors="*{academicLevel}">Salary Error</td>
             </tr>
             <tr>
                 <td>Department:</td>
@@ -68,6 +69,7 @@
                         <option th:each="a:${departmentsList}" th:value="${a.id}" th:text="${a.departmentName}"></option>
                     </select>
                 </td>
+                <td th:if="${#fields.hasErrors('department')}" th:errors="*{department}">Salary Error</td>
             </tr>
             <tr>
                 <td>Labor Contract:</td>
@@ -76,6 +78,7 @@
                         <option th:each="a:${laborContracts}" th:value="${a.id}" th:text="${a.name}"></option>
                     </select>
                 </td>
+                <td th:if="${#fields.hasErrors('laborContract')}" th:errors="*{laborContract}">Salary Error</td>
             </tr>
             <tr>
                 <td>Position:</td>
@@ -84,6 +87,7 @@
                         <option th:each="f:${positions}" th:value="${f.id}" th:text="${f.name}"></option>
                     </select>
                 </td>
+                <td th:if="${#fields.hasErrors('position')}" th:errors="*{position}">Salary Error</td>
             </tr>
             <tr>
                 <td></td>
@@ -96,5 +100,6 @@
         </table>
     </form>
 </div>
+<footer th:replace="layout :: footer"></footer>
 </body>
 </html>

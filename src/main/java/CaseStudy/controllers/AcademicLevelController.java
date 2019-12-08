@@ -1,7 +1,9 @@
 package CaseStudy.controllers;
 
 import CaseStudy.models.AcademicLevel;
+import CaseStudy.models.Employee;
 import CaseStudy.services.AcademicLevelService;
+import CaseStudy.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,7 +21,8 @@ public class AcademicLevelController {
 
     @Autowired
     private AcademicLevelService academicLevelService;
-
+    @Autowired
+    private EmployeeService employeeService;
     @GetMapping("/admin/levels")
     public ModelAndView showLevel(Pageable pageable) {
         Page<AcademicLevel> academicLevels = academicLevelService.findAll(pageable);
@@ -79,6 +82,13 @@ public class AcademicLevelController {
 
     @PostMapping("/admin/academicLevel/delete")
     public ModelAndView deleteAcademicLevel(@ModelAttribute("level") AcademicLevel academicLevel, Pageable pageable) {
+        Page<Employee> employees = employeeService.findAll(pageable);
+        if (employees!=null){
+            ModelAndView modelAndView = new ModelAndView("academicLevel/delete");
+            modelAndView.addObject("level", academicLevelService.findById(academicLevel.getId()));
+            modelAndView.addObject("message", "You must remove the employee associated with this field");
+            return modelAndView;
+        }
         academicLevelService.remove(academicLevel.getId());
         ModelAndView modelAndView = new ModelAndView("academicLevel/list");
         modelAndView.addObject("levels", academicLevelService.findAll(pageable));

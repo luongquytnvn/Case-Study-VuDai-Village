@@ -41,5 +41,6 @@
     <span th:text="${department.number + 1}"></span>/<span th:text="${department.totalPages}"></span>
     <a th:href="@{'/admin/department-list'(page=${department.number + 1})}" th:if="${department.hasNext()}">Next</a>
 </div>
+<footer th:replace="layout :: footer"></footer>
 </body>
 </html>
