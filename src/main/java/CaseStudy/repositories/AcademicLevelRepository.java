@@ -6,5 +6,5 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface AcademicLevelRepository extends PagingAndSortingRepository<AcademicLevel, Long> {
-    Page<AcademicLevel> findAllByNameLevel(String name, Pageable pageable);
+    Page<AcademicLevel> findAllByNameLevelAndSpecialized(String name,String specialized, Pageable pageable);
 }

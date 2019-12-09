@@ -9,7 +9,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/EmployeeManagement-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/EmployeeManagement-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/controllers/AcademicLevelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/controllers/AcademicLevelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/repositories/AcademicLevelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/repositories/AcademicLevelRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/services/AcademicLevelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/services/AcademicLevelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CaseStudy/services/impl/AcademicLevelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CaseStudy/services/impl/AcademicLevelServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/employee/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/employee/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/position/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/position/list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,13 +50,6 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="employee-management: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="employee-management: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="employee: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -205,7 +205,10 @@
       <workItem from="1575682674702" duration="589000" />
       <workItem from="1575683310309" duration="30860000" />
       <workItem from="1575773672553" duration="10272000" />
-      <workItem from="1575788566596" duration="6925000" />
+      <workItem from="1575788566596" duration="7908000" />
+      <workItem from="1575853546918" duration="1380000" />
+      <workItem from="1575860095796" duration="636000" />
+      <workItem from="1575860850764" duration="3736000" />
     </task>
     <servers />
   </component>
@@ -224,26 +227,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/CaseStudy/services/impl/AcademicLevelServiceImpl.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/CaseStudy/services/impl/AcademicLevelServiceImpl.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/CaseStudy/services/impl/AcademicLevelServiceImpl.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

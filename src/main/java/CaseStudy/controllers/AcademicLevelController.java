@@ -44,7 +44,7 @@ public class AcademicLevelController {
             ModelAndView modelAndView = new ModelAndView("academicLevel/create");
             return modelAndView;
         }
-        if (!academicLevelService.isExisted(academicLevel.getNameLevel(),pageable)){
+        if (!academicLevelService.isExisted(academicLevel.getNameLevel(), academicLevel.getSpecialized(), pageable)){
             ModelAndView modelAndView = new ModelAndView("academicLevel/create");
             modelAndView.addObject("level",academicLevel);
             modelAndView.addObject("message","Academic is Existed");
@@ -71,8 +71,8 @@ public class AcademicLevelController {
             ModelAndView modelAndView = new ModelAndView("academicLevel/edit");
             return modelAndView;
         }
-        if (!academicLevelService.isExisted(academicLevel.getNameLevel(),pageable)){
-            ModelAndView modelAndView = new ModelAndView("academicLevel/create");
+        if (!academicLevelService.isExisted(academicLevel.getNameLevel(), academicLevel.getSpecialized(), pageable)){
+            ModelAndView modelAndView = new ModelAndView("academicLevel/edit");
             modelAndView.addObject("level",academicLevel);
             modelAndView.addObject("message","Academic is Existed");
             return modelAndView;

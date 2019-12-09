@@ -5,10 +5,16 @@
     <title>List employee</title>
 </head>
 <body>
-<p>
-    <a href="/">Back to home page</a> ||
-    <a href="/logout">Logout</a>
-</p>
+<div id="menu">
+    <ul>
+        <li><a href="/">Homepage</a></li>
+        <li><a href="/admin/levels">Academic level list</a></li>
+        <li><a href="/admin/department-list">Department list</a></li>
+        <li><a href="/admin/laborContract">Labor contract list</a></li>
+        <li><a href="/admin/positions">Position list</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+</div>
 <h1>Employee list</h1>
 <p>
     <a href="/admin/employee-create">Create new employee</a>
@@ -17,7 +23,7 @@
 <form th:action="@{/admin/employee-list-sort}">
     <select name="sortBy">
         <option value="default">Default</option>
-        <option value="name">Name</option>
+        <option value="name">Academic Level list</option>
         <option value="dateOfBirth">Date Of Birth</option>
         <option value="address">Address</option>
         <option value="salary">Salary</option>

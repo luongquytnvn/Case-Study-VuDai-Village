@@ -32,8 +32,8 @@ public class AcademicLevelServiceImpl implements AcademicLevelService {
     }
 
     @Override
-    public Boolean isExisted(String name, Pageable pageable) {
-        Page<AcademicLevel> academicLevels = academicLevelRepository.findAllByNameLevel(name,pageable);
+    public Boolean isExisted(String name, String specialized, Pageable pageable) {
+        Page<AcademicLevel> academicLevels = academicLevelRepository.findAllByNameLevelAndSpecialized(name, specialized, pageable);
         if(academicLevels.hasContent()) {
             return false;
         }
