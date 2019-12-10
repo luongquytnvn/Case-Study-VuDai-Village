@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://maven.apache.org/FML/1.0.1">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="layout :: head">
     <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
     <title>Homepage</title>
@@ -13,8 +14,9 @@
         <li><a href="/admin/department-list">Department list</a></li>
         <li><a href="/admin/laborContract">Labor contract list</a></li>
         <li><a href="/admin/positions">Position list</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/logout">Logout</a></li>
+        <li sec:authorize="!isAuthenticated()"><a  th:href="@{/login}">Login</a></li>
+        <li sec:authorize="isAuthenticated()"><a>Welcome Admin</a></li>
+        <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
     </ul>
 </div>
 <section>

@@ -5,10 +5,18 @@
     <title>AcademicLevel List</title>
 </head>
 <body>
-<p>
-    <a href="/">Back to home</a> ||
-    <a href="/logout">Logout</a>
-</p>
+<div id="menu">
+    <ul>
+        <li><a href="/">Homepage</a></li>
+        <li><a href="/admin/employee-list">Employee list</a></li>
+        <li><a href="/admin/levels">Academic list</a></li>
+        <li><a href="/admin/department-list">Department list</a></li>
+        <li><a href="/admin/laborContract">Labor contract list</a></li>
+        <li><a href="/admin/positions">Position list</a></li>
+        <li><a style="color: red">Welcome Admin</a></li>
+        <li><a th:href="@{/logout}">Logout</a></li>
+    </ul>
+</div>
 <h1>AcademicLevel List</h1>
 <p>
     <a href="/admin/academicLevel/create">Create new category</a>

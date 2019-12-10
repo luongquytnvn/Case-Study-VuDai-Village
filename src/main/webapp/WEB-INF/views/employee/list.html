@@ -8,11 +8,13 @@
 <div id="menu">
     <ul>
         <li><a href="/">Homepage</a></li>
+        <li><a href="/admin/employee-list">Employee list</a></li>
         <li><a href="/admin/levels">Academic list</a></li>
         <li><a href="/admin/department-list">Department list</a></li>
         <li><a href="/admin/laborContract">Labor contract list</a></li>
         <li><a href="/admin/positions">Position list</a></li>
-        <li><a href="/logout">Logout</a></li>
+        <li><a style="color: red">Welcome Admin</a></li>
+        <li><a th:href="@{/logout}">Logout</a></li>
     </ul>
 </div>
 <h1>Employee list</h1>
@@ -94,8 +96,8 @@
     </tr>
     <th:block th:each="employee : ${employees}">
         <tr>
-            <td><a th:href="@{/admin/employee-view/__${employee.id}__}" th:text="${employee.id}"></a></td>
-            <td><a th:href="@{/admin/employee-view/__${employee.id}__}" th:text="${employee.name}"></a></td>
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.name}"></td>
             <td>
                 <a th:if="${employee.gender}" th:text="Male"></a>
                 <a th:if="${!employee.gender}" th:text="Female"></a>
